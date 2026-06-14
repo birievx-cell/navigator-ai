@@ -6,12 +6,12 @@ export default function GosPomoshPage() {
       </h1>
 
       <p className="mt-4 text-lg text-gray-600">
-        Подбор грантов, субсидий, льготных кредитов и программ поддержки бизнеса.
+        Подбор грантов, субсидий и льготных программ поддержки бизнеса.
       </p>
 
       <div className="mt-10 grid gap-6 md:grid-cols-3">
         <div className="rounded-3xl border bg-white p-6 shadow-sm">
-          <div className="text-4xl">🏛️</div>
+          <div className="text-4xl">💰</div>
           <h3 className="mt-4 text-xl font-bold">Гранты</h3>
           <p className="mt-2 text-gray-600">
             Поиск доступных программ финансирования.
@@ -19,9 +19,14 @@ export default function GosPomoshPage() {
         </div>
 
         <div className="rounded-3xl border bg-white p-6 shadow-sm">
-          <div className="text-4xl">💰</div>
+          <div className="text-4xl">🏦</div>
           <h3 className="mt-4 text-xl font-bold">Льготные кредиты</h3>
-   v className="rounded-3xl border bg-white p-6 shadow-sm">
+          <p className="mt-2 text-gray-600">
+            Поддержка малого и среднего бизнеса.
+          </p>
+        </div>
+
+        <div className="rounded-3xl border bg-white p-6 shadow-sm">
           <div className="text-4xl">📈</div>
           <h3 className="mt-4 text-xl font-bold">Субсидии</h3>
           <p className="mt-2 text-gray-600">

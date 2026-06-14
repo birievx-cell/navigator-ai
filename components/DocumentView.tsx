@@ -38,10 +38,53 @@ console.log("ANALYSIS =", doc?.analysis);
 const a = doc.analysis;
   return (
     <article className="mx-auto max-w-3xl">
-      <header className="print-section mb-10">
-        <p className="tab-index">Бизнес-документ · Навигатор AI</p>
-        <h1 className="mt-3 font-display text-2xl font-bold leading-tight sm:text-3xl">{doc.title}</h1>
-        <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">
+  <div className="mb-8 overflow-hidden rounded-3xl bg-gradient-to-r from-blue-600 to-indigo-700 p-8 text-white shadow-xl">
+  <div className="mb-3 inline-flex rounded-full bg-white/20 px-4 py-2 text-xs font-bold uppercase tracking-wider">
+    AI Бизнес-анализ
+  </div>
+
+  <h1 className="text-4xl font-bold leading-tight">
+    {doc.title}
+  </h1>
+
+  <p className="mt-4 max-w-2xl text-blue-100">
+    {a.summary}
+  </p>
+
+  <div className="mt-6 flex flex-wrap gap-3">
+    <div className="rounded-xl bg-white/10 px-4 py-3">
+      <div className="text-xs text-blue-200">Оценка</div>
+      <div className="text-2xl font-bold">
+        {a.verdict_score}/10
+      </div>
+    </div>
+
+    <div className="rounded-xl bg-white/10 px-4 py-3">
+      <div className="text-xs text-blue-200">Инвестиции</div>
+      <div className="text-2xl font-bold">
+        ₽ {doc.finance_assumptions?.startup_costs ?? 0}
+      </div>
+    </div>
+
+    <div className="rounded-xl bg-white/10 px-4 py-3">
+      <div className="text-xs text-blue-200">Средний чек</div>
+      <div className="text-2xl font-bold">
+        ₽ {doc.finance_assumptions?.avg_check ?? 0}
+      </div>
+    </div>
+  </div>
+</div>
+<header className="print-section mb-10">
+return (
+  <article className="mx-auto max-w-3xl">
+
+    <header className="print-section mb-10">
+
+      <div className="mb-8 overflow-hidden rounded-3xl bg-gradient-to-r from-blue-600 to-indigo-700 p-8 text-white shadow-xl">
+        ...
+      </div>
+
+      {!printMode && (
 
   <div className="rounded-xl border border-line bg-white p-4">
     <div className="text-xs uppercase text-muted">
