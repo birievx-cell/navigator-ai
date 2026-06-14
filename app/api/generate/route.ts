@@ -40,11 +40,31 @@ export async function POST(req: Request) {
   try {
     let r = await attempt();
     let doc: BusinessDocument & { refused?: boolean; reason?: string };
+    
     try {
       doc = extractJson(r.text);
+      if (
+        !doc ||
+        !doc.analysis ||
+        typeof doc.analysis.verdict_score !== "number" ||
+        !Array.isArray(doc.risks) ||
+        !doc.finance_assumptions ||
+        !Array.isArray(doc.launch_plan)
+      ) {
+        throw new Error("INVALID_DOCUMENT_STRUCTURE");
+      }
+    
+      console.log("========== DOC_DEBUG ==========");
+      console.log(JSON.stringify(doc, null, 2));
+      console.log("========== END_DOC_DEBUG ==========");
+    
     } catch {
-      r = await attempt(); // один авто-ретрай на невалидный JSON
+      r = await attempt();
       doc = extractJson(r.text);
+    
+      console.log("========== DOC_DEBUG ==========");
+      console.log(JSON.stringify(doc, null, 2));
+      console.log("========== END_DOC_DEBUG ==========");
     }
 
     await supabase.from("generations").insert({

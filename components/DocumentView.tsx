@@ -32,7 +32,10 @@ export function DocumentView({
   userId: string;
   printMode?: boolean;
 }) {
-  const a = doc.analysis;
+  console.log("DOC =", doc);
+console.log("ANALYSIS =", doc?.analysis);
+
+const a = doc.analysis;
   return (
     <article className="mx-auto max-w-3xl">
       <header className="print-section mb-10">
