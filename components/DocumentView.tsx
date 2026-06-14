@@ -41,10 +41,45 @@ const a = doc.analysis;
       <header className="print-section mb-10">
         <p className="tab-index">Бизнес-документ · Навигатор AI</p>
         <h1 className="mt-3 font-display text-2xl font-bold leading-tight sm:text-3xl">{doc.title}</h1>
-        <div className="mt-4 inline-flex items-center gap-3 rounded-lg border border-line bg-white px-4 py-2">
-          <span className="text-sm text-muted">Оценка идеи</span>
-          <span className="font-display text-xl font-bold text-cobalt">{a.verdict_score}/10</span>
-        </div>
+        <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">
+
+  <div className="rounded-xl border border-line bg-white p-4">
+    <div className="text-xs uppercase text-muted">
+      Оценка идеи
+    </div>
+    <div className="mt-2 text-3xl font-bold text-cobalt">
+      {a.verdict_score}/10
+    </div>
+  </div>
+
+  <div className="rounded-xl border border-line bg-white p-4">
+    <div className="text-xs uppercase text-muted">
+      Риск
+    </div>
+    <div className="mt-2 text-2xl font-bold">
+      Средний
+    </div>
+  </div>
+
+  <div className="rounded-xl border border-line bg-white p-4">
+    <div className="text-xs uppercase text-muted">
+      Инвестиции
+    </div>
+    <div className="mt-2 text-2xl font-bold">
+      ₽ {doc.finance_assumptions?.startup_costs ?? 0}
+    </div>
+  </div>
+
+  <div className="rounded-xl border border-line bg-white p-4">
+    <div className="text-xs uppercase text-muted">
+      Средний чек
+    </div>
+    <div className="mt-2 text-2xl font-bold">
+      ₽ {doc.finance_assumptions?.avg_check ?? 0}
+    </div>
+  </div>
+
+</div>
         {!printMode && (
           <div className="no-print mt-5 flex flex-wrap gap-3">
             <Link
